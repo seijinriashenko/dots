@@ -1,6 +1,7 @@
 *
 
 !install.sh
+!readme.md
 
 !.config/
 !.config/mimeapps.list
@@ -11,8 +12,6 @@
 !.config/bspwm/**/*
 !.config/compfy/
 !.config/compfy/**/*
-!.config/emacs/
-!.config/emacs/*.el
 !.config/fontconfig/
 !.config/fontconfig/**/*
 !.config/git/
