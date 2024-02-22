@@ -49,4 +49,4 @@ alias \
 
 # Utility commands
 alias \
-    config="/usr/bin/git --git-dir=$HOME/.dotfiles/ --work-tree=$HOME"
+    dots="/usr/bin/git --git-dir=$HOME/.dots/ --work-tree=$HOME"
