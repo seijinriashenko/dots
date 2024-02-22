@@ -1,5 +1,7 @@
 *
 
+!install.sh
+
 !.config/
 !.config/mimeapps.list
 !.config/user-dirs.dirs
@@ -42,6 +44,7 @@
 
 !.gitignore
 !.zprofile
-!.mozilla/firefox/*.default-release/chrome
+!.mozilla/firefox/*.default-release/chrome/
+!.mozilla/firefox/*.default-release/chrome/**/*
 
 __*__
