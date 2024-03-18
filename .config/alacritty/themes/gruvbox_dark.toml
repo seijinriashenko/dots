@@ -4,9 +4,9 @@
 [colors.primary]
 # background = '#32302f'
 # background = '#282828'
+background = '#1d2021'
 # background = '#0b0c0c'
-# background = '#000000'
-background = '#07080c'
+# background = '#07080c'
 foreground = '#ebdbb2'
 
 # Normal colors

@@ -5,13 +5,13 @@ xsetroot -cursor_name left_ptr # useful in BSPWM for example
 # setbg &
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 
-autostart="pipewire dunst nm-applet compfy gxkb"
+autostart="pipewire dunst nm-applet compfy flameshot udiskie"
 
 for program in $autostart; do
     pidof -sx "$program" || "$program" &
 done >/dev/null 2>&1
 
-lxsession &
+/usr/lib/polkit-kde-authentication-agent-1 &
 
 # Ensure that xrdb has finished running before moving on to start the WM/DE.
 [ -n "$xrdbpid" ] && wait "$xrdbpid"

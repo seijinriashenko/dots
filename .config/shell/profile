@@ -34,6 +34,7 @@ export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh" # oh-my-zsh folder
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export QT_QPA_PLATFORMTHEME="gtk3"
+export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
 
 # lf icons
 export LF_ICONS="\
@@ -202,3 +203,4 @@ export LC_ALL=en_US.UTF-8
 
 # Start graphical server on user's current tty if not already running.
 [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $XINITRC
+# [ "$(tty)" = "/dev/tty1" ] && exec Hyprland

@@ -9,4 +9,5 @@ fi
 # Activate DBus variables
 dbus-update-activation-environment --all
 # exec bspwm
-exec qtile start
+# exec qtile start
+exec awesome

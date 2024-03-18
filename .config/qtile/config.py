@@ -6,13 +6,13 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen
 from libqtile.lazy import lazy
 from libqtile.utils import guess_terminal
 
-
 ######################################
 ###--------- Variables ------------###
 ######################################
 mod = "mod4"
 terminal = guess_terminal()
-browser  = "firefox"
+browser = 'sh -c "GTK_THEME=Adwaita:dark firefox"'
+file_manager = "nemo"
 
 
 #####################################
@@ -23,7 +23,6 @@ keys = [
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
     Key([mod, "shift"], "r", lazy.reload_config(), desc="Reload the config"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-
     ##--- Windows ---##
     Key([mod], "h", lazy.layout.left(), desc="Move focus to left"),
     Key([mod], "l", lazy.layout.right(), desc="Move focus to right"),
@@ -31,13 +30,22 @@ keys = [
     Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
     Key([mod], "space", lazy.layout.next(), desc="Move window focus to other window"),
     # Move windows between left/right columns or move up/down in a current stack.
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right(), desc="Move window to the right"),
+    Key(
+        [mod, "shift"], "h", lazy.layout.shuffle_left(), desc="Move window to the left"
+    ),
+    Key(
+        [mod, "shift"],
+        "l",
+        lazy.layout.shuffle_right(),
+        desc="Move window to the right",
+    ),
     Key([mod, "shift"], "j", lazy.layout.shuffle_down(), desc="Move window down"),
     Key([mod, "shift"], "k", lazy.layout.shuffle_up(), desc="Move window up"),
     # Grow windows.
     Key([mod, "control"], "h", lazy.layout.grow_left(), desc="Grow window to the left"),
-    Key([mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"),
+    Key(
+        [mod, "control"], "l", lazy.layout.grow_right(), desc="Grow window to the right"
+    ),
     Key([mod, "control"], "j", lazy.layout.grow_down(), desc="Grow window down"),
     Key([mod, "control"], "k", lazy.layout.grow_up(), desc="Grow window up"),
     Key([mod], "n", lazy.layout.normalize(), desc="Reset all window sizes"),
@@ -52,7 +60,6 @@ keys = [
     ),
     # Kill currently focused window.
     Key([mod], "q", lazy.window.kill(), desc="Kill focused window"),
-
     ##--- Layouts ---##
     # Toggle between different layouts as defined below
     Key([mod], "Tab", lazy.next_layout(), desc="Toggle between layouts"),
@@ -64,11 +71,18 @@ keys = [
         desc="Toggle fullscreen on the focused window",
     ),
     # Floating
-    Key([mod], "t", lazy.window.toggle_floating(), desc="Toggle floating on the focused window"),
-
+    Key(
+        [mod],
+        "t",
+        lazy.window.toggle_floating(),
+        desc="Toggle floating on the focused window",
+    ),
     ##--- User programs ---##
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
-    Key([mod], "b"     , lazy.spawn(browser), desc="Launch browser"),
+    Key([mod], "b", lazy.spawn(browser), desc="Launch a browser"),
+    Key([mod], "e", lazy.spawn(file_manager), desc="Launch a file manager"),
+    Key([mod, "shift"], "s", lazy.spawn("flameshot gui"), desc="Area screenshot"),
+    Key([mod, "shift"], "p", lazy.spawn("flameshot screen"), desc="Desktop screenshot"),
 ]
 
 # Add key bindings to switch VTs in Wayland.
@@ -88,60 +102,49 @@ for vt in range(1, 8):
 #####################################
 ###----- Groups (workspaces) -----###
 #####################################
+# groups = [Group(f"{i+1}", label="◉") for i in range(5)]
+
 groups = [
     Group(
         "1",
-        label = "一",
-        matches = [
-            Match(wm_class="Alacritty"),
+        label="一",
+        matches=[
             Match(wm_class="Emacs"),
-            Match(wm_class="kitty"),
         ],
     ),
     Group(
         "2",
-        label = "二",
-        matches = [
-            Match(wm_class="firefox"),
-            Match(wm_class="chromium"),
-            Match(wm_class="Alacritty"),
-            Match(wm_class="Emacs"),
-            Match(wm_class="kitty"),
-        ],
+        label="二",
+        matches=[],
     ),
     Group(
         "3",
-        label = "三",
-        matches = [
-            Match(wm_class="Alacritty"),
-            Match(wm_class="Emacs"),
-            Match(wm_class="kitty"),
+        label="三",
+        matches=[
+            Match(wm_class="firefox"),
+            Match(wm_class="chromium"),
         ],
     ),
     Group(
         "4",
-        label = "四",
-        matches = [
-        ],
+        label="四",
+        matches=[],
     ),
     Group(
         "5",
-        label = "五",
-        matches = [
-        ],
+        label="五",
+        matches=[],
     ),
-    Group(
-        "6",
-        label = "六",
-        matches = [
-        ],
-    ),
-    Group(
-        "7",
-        label = "七",
-        matches = [
-        ],
-    ),
+    # Group(
+    #     "6",
+    #     label="六",
+    #     matches=[],
+    # ),
+    # Group(
+    #     "7",
+    #     label="七",
+    #     matches=[],
+    # ),
 ]
 
 for i in groups:
@@ -173,7 +176,12 @@ for i in groups:
 ###---------- Layouts ------------###
 #####################################
 layouts = [
-    layout.Columns(border_focus = "#dfaf87", border_normal = "#0e1018", border_width = 2, border_on_single = True),
+    layout.Columns(
+        border_focus="#bdae93",
+        border_normal="#0e1018",
+        border_width=2,
+        border_on_single=True,
+    ),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Stack(num_stacks=2),
@@ -196,6 +204,7 @@ floating_layout = layout.Floating(
         Match(wm_class="makebranch"),  # gitk
         Match(wm_class="maketag"),  # gitk
         Match(wm_class="ssh-askpass"),  # ssh-askpass
+        Match(title="Media viewer"),  # ssh-askpass
         Match(title="branchdialog"),  # gitk
         Match(title="pinentry"),  # GPG key password entry
     ]
@@ -207,36 +216,36 @@ floating_layout = layout.Floating(
 #####################################
 widget_defaults = dict(
     font="HelveticaNeueCyr Bold",
-    fontsize=13,
+    fontsize=14,
     padding=3,
+    foreground="ebdbb2",
 )
 extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        top = bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
-
                 widget.GroupBox(
-                    this_current_screen_border="fc9b4b",
-                    this_screen_border="fc9b4b",
-                    block_highlight_text_color="fbf1c7",
-                    active="bdae93",
+                    this_current_screen_border="c64b3d",
+                    this_screen_border="c64b3d",
+                    block_highlight_text_color="ebdbb2",
+                    active="99554e",
                     inactive="665c54",
                     highlight_method="line",
                     # highlight_color=['07080c','0e1018', '191d2b', '202538', '272e44'],
-                    highlight_color=['0e1018'],
+                    highlight_color=["07080c"],
                     urgent_alert_method="text",
-                    urgent_border="fe8019",
-                    urgent_text="fe8019",
+                    urgent_border="c64b3d",
+                    urgent_text="c64b3d",
                     hide_unused=False,
                     disable_drag=True,
-                    use_mouse_wheel=False
+                    use_mouse_wheel=False,
                 ),
-
                 widget.Prompt(),
-                widget.WindowName(),
+                widget.Spacer(),
+                # widget.WindowName(),
                 widget.Chord(
                     chords_colors={
                         "launch": ("#ff0000", "#ffffff"),
@@ -245,13 +254,21 @@ screens = [
                 ),
                 # NB Systray is incompatible with Wayland, consider using StatusNotifier instead
                 # widget.StatusNotifier(),
-                widget.CPUGraph(border_width=0, line_width=1, fill_color="dfaf87", graph_color="458588", samples=50, margin_x=1, width=50),
+                widget.CPUGraph(
+                    border_width=0,
+                    line_width=1,
+                    fill_color="dfaf87",
+                    graph_color="458588",
+                    samples=50,
+                    margin_x=1,
+                    width=50,
+                ),
                 widget.CPU(format="{load_percent}%"),
                 widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 widget.Systray(),
             ],
             24,
-            background = "#07080c",
+            background="#07080c",
             # border_width = [2, 0, 0, 0],  # Draw top and bottom borders
             # border_color = ["0e1018", "000000", "000000", "000000"]  # Borders are magenta
         ),
@@ -267,8 +284,15 @@ screens = [
 ###---------- Mouse ------------###
 ###################################
 mouse = [
-    Drag([mod], "Button1", lazy.window.set_position_floating(), start=lazy.window.get_position()),
-    Drag([mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()),
+    Drag(
+        [mod],
+        "Button1",
+        lazy.window.set_position_floating(),
+        start=lazy.window.get_position(),
+    ),
+    Drag(
+        [mod], "Button3", lazy.window.set_size_floating(), start=lazy.window.get_size()
+    ),
     Click([mod], "Button2", lazy.window.bring_to_front()),
 ]
 
@@ -291,6 +315,6 @@ auto_fullscreen = True
 focus_on_window_activation = "smart"
 reconfigure_screens = True
 
-auto_minimize = True    # should we respect auto-minimize feature of apps?
-wl_input_rules = None   # used to configure input devices in Wayland
-wmname = "LG3D"         # just leave it as it is
+auto_minimize = True  # should we respect auto-minimize feature of apps?
+wl_input_rules = None  # used to configure input devices in Wayland
+wmname = "LG3D"  # just leave it as it is
