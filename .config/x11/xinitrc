@@ -10,4 +10,5 @@ fi
 dbus-update-activation-environment --all
 # exec bspwm
 # exec qtile start
-exec awesome
+# exec awesome
+exec i3
