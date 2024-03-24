@@ -62,7 +62,6 @@ set $ws4 "4"
 set $ws5 "5"
 set $ws6 "6"
 set $ws7 "7"
-set $ws8 "8"
 
 ##############################
 # switch to workspace        #
@@ -74,7 +73,6 @@ bindsym $mod+4    workspace  $ws4
 bindsym $mod+5    workspace  $ws5
 bindsym $mod+6    workspace  $ws6
 bindsym $mod+7    workspace  $ws7
-bindsym $mod+8    workspace  $ws8
 
 
 # move focused container to workspace
@@ -85,7 +83,6 @@ bindsym $mod+Shift+4    move container to workspace  $ws4
 bindsym $mod+Shift+5    move container to workspace  $ws5
 bindsym $mod+Shift+6    move container to workspace  $ws6
 bindsym $mod+Shift+7    move container to workspace  $ws7
-bindsym $mod+Shift+8    move container to workspace  $ws8
 
 ################################
 #     Assigned Workspace       #
@@ -168,27 +165,26 @@ bindsym $mod+Shift+8    move container to workspace  $ws8
 # assign [class="obsidian"] $ws7
 # for_window [class=obsidian] focus
 
-# (W-8)
 # ========== Settings and Misc. ===========
-# assign [class="SimpleScreenRecorder"] $ws8
+# assign [class="SimpleScreenRecorder"] $ws7
 # for_window [class=SimpleScreenRecorder] focus
 #
-# assign [class="Kazam"] $ws8
+# assign [class="Kazam"] $ws7
 # for_window [class=Kazam] focus
 #
-# assign [class="Lxappearance"] $ws8
+# assign [class="Lxappearance"] $ws7
 # for_window [class=Lxappearance] focus
 #
-# assign [class="stacer"] $ws8
+# assign [class="stacer"] $ws7
 # for_window [class=stacer] focus
 #
-# assign [class="qBittorrent"] $ws8
+# assign [class="qBittorrent"] $ws7
 # for_window [class=qBittorrent] focus
 #
-# assign [class="Yad"] $ws8
+# assign [class="Yad"] $ws7
 # for_window [class=Yad] focus
 #
-# assign [class="Gnome-disks"] $ws8
+# assign [class="Gnome-disks"] $ws7
 # for_window [class=Gnome-disks] focus
 
 ##############################
@@ -296,7 +292,7 @@ bindsym $mod+period exec rofi -modi emoji -show emoji
 bindsym $mod+q kill
 
 # exit-menu
-bindsym $mod+Shift+q exec ~/.config/i3/scripts/power.sh
+bindsym $mod+Shift+q exec ~/.config/i3/scripts/power
 
 # Lock the system
 bindsym $mod+Shift+x exec i3lock -i ~/media/pictures/wallpapers/fractals_gruvbox.jpg
