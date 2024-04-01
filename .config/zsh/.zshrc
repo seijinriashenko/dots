@@ -99,19 +99,3 @@ PROMPT='%{$fg_bold[yellow]%}%c%{$reset_color%} ${vcs_info_msg_0_}%(?:%{$fg_bold[
 [ -d "/usr/share/zsh/plugins/fast-syntax-highlighting" ] && source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 [ -d "/usr/share/zsh/plugins/zsh-autosuggestions" ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
 # [ -d "/usr/share/zsh-theme-powerlevel10k" ] && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/seijin/.local/bin/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/seijin/.local/bin/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/seijin/.local/bin/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/seijin/.local/bin/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
-

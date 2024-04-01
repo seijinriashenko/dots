@@ -1,18 +1,24 @@
-xrandr --dpi 93
-# xrandr --dpi 125 # for laptop
-xsetroot -cursor_name left_ptr # useful in BSPWM for example
+#xrandr --dpi 93 # AOC C24G1
+xrandr --dpi 125 # X220
 
+# useful in BSPWM for example
+xsetroot -cursor_name left_ptr
+# adjust typematic delay and rate
+xset r rate 250 25
+
+# set wallpaper
 feh --no-fehbg --bg-fill ~/media/pictures/wallpapers/great-wave-of-kanagawa-gruvbox.png
 
+# load xresources
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 
+# autostart programs
 autostart="pipewire dunst nm-applet compfy flameshot udiskie"
-
 for program in $autostart; do
     pidof -sx "$program" || "$program" &
 done >/dev/null 2>&1
 
 /usr/lib/polkit-kde-authentication-agent-1 &
 
-# Ensure that xrdb has finished running before moving on to start the WM/DE.
+# ensure that xrdb has finished running before moving on to start the WM/DE
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
