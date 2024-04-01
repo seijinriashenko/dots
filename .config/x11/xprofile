@@ -2,7 +2,8 @@ xrandr --dpi 93
 # xrandr --dpi 125 # for laptop
 xsetroot -cursor_name left_ptr # useful in BSPWM for example
 
-# setbg &
+feh --no-fehbg --bg-fill ~/media/pictures/wallpapers/great-wave-of-kanagawa-gruvbox.png
+
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 
 autostart="pipewire dunst nm-applet compfy flameshot udiskie"

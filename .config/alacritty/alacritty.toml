@@ -13,7 +13,7 @@ program = "/bin/zsh"
 args = ["--login"]
 
 [window]
-dimensions = { columns = 80, lines = 24 }
+# dimensions = { columns = 80, lines = 24 }
 padding = { x = 5, y = 5 }
 dynamic_padding = true
 # opacity = 0.95

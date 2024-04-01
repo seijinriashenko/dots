@@ -3,13 +3,24 @@
 ####################################
 focus_follows_mouse no
 focus_wrapping no
+
+# Title bars
 title_align center
+for_window [floating] title_window_icon padding 5px
+
+# Borders
+default_border pixel 1
+default_floating_border normal
+for_window [floating] border normal 1
+for_window [class="^.*"] border pixel 1 
+# thin borders
+hide_edge_borders none
 ######################################
 
 ####################################
 #     Fonts 
 ####################################
-font pango: monospace 10
+font pango: sans-serif bold 8
 
 ################################
 #         Mod Key
@@ -23,14 +34,6 @@ set $mod Mod4
 # default i3 tiling mode:
 workspace_layout default
 
-##############################
-#border indicator on windows:
-##############################
-default_border pixel 1
-for_window [class="^.*"] border pixel 1
-
-# thin borders
-hide_edge_borders smart
 
 ###############################
 #         Gaps
@@ -222,10 +225,10 @@ bindsym $mod+m fullscreen toggle
 # bindsym $mod+t layout toggle split
 
 # toggle tiling / floating
-bindsym $mod+space floating toggle
+bindsym $mod+shift+space floating toggle; [tiling con_id=__focused__] border pixel 1; [floating con_id=__focused__] border normal 1
 
 # change focus between tiling / floating windows
-# bindsym $mod+q focus mode_toggle
+bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+p focus parent
@@ -341,7 +344,7 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 # Define colors variables:
 # bg tab mode
 set $color1     #131621
-set $color2     #9999a8
+set $color2     #bdae93
 set $color3     #fabd3f
 set $color4     #0e1018
 

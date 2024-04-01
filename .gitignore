@@ -41,6 +41,11 @@
 !.config/zsh/
 !.config/zsh/**/*
 
+!.themes/
+!.themes/**/*
+!.icons/
+!.icons/**/*
+
 !.gitignore
 !.zprofile
 !.mozilla/firefox/*.default-release/chrome/
