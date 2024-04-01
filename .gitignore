@@ -30,6 +30,8 @@
 !.config/polybar/**/*
 !.config/redshift/
 !.config/redshift/**/*
+!.config/rofi/
+!.config/rofi/**/*
 !.config/shell/
 !.config/shell/**/*
 !.config/sxhkd/
