@@ -9,4 +9,4 @@ fi
 # Activate DBus variables
 dbus-update-activation-environment --all
 # exec bspwm
-exec i3
+# exec i3
