@@ -8,8 +8,6 @@
 !.config/user-dirs.dirs
 !.config/alacritty/
 !.config/alacritty/**/*
-!.config/bspwm/
-!.config/bspwm/**/*
 !.config/compfy/
 !.config/compfy/**/*
 !.config/fontconfig/
@@ -20,16 +18,14 @@
 !.config/i3/**/*
 !.config/npm/
 !.config/npm/**/*
-!.config/polybar/
-!.config/polybar/**/*
+# !.config/polybar/
+# !.config/polybar/**/*
 !.config/redshift/
 !.config/redshift/**/*
 !.config/rofi/
 !.config/rofi/**/*
 !.config/shell/
 !.config/shell/**/*
-!.config/sxhkd/
-!.config/sxhkd/**/*
 !.config/wget/
 !.config/wget/**/*
 !.config/x11/

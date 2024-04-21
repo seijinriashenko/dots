@@ -1,10 +1,3 @@
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.config/zsh/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
-
 ## History settings
 HISTSIZE=100000
 SAVEHIST=100000
@@ -98,4 +91,3 @@ PROMPT='%{$fg_bold[yellow]%}%c%{$reset_color%} ${vcs_info_msg_0_}%(?:%{$fg_bold[
 [ -d "/usr/share/zsh/plugins/zsh-vi-mode" ] && source /usr/share/zsh/plugins/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 [ -d "/usr/share/zsh/plugins/fast-syntax-highlighting" ] && source /usr/share/zsh/plugins/fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 [ -d "/usr/share/zsh/plugins/zsh-autosuggestions" ] && source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.plugin.zsh
-# [ -d "/usr/share/zsh-theme-powerlevel10k" ] && source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme

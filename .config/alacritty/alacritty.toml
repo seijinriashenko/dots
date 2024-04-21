@@ -21,7 +21,7 @@ opacity = 1
 
 [font]
 normal = { family = "monospace", style = "Medium" }
-size = 13
+size = 15
 
 [cursor]
 style = { shape = "Block", blinking = "Never" }

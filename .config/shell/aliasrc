@@ -3,6 +3,9 @@
 # Use neovim for vim if present.
 [ -x "$(command -v nvim)" ] && alias vi="nvim " svi="sudo nvim " vim="nvim " svim="sudo nvim " vimdiff="nvim -d "
 
+# Use emacsclient as emacs
+[ -x "$(command -v emacsclient)" ] && alias emacsclient="emacsclient -nc" emacs="emacsclient"
+
 # Use $XINITRC variable if file exists.
 [ -f "$XINITRC" ] && alias startx="startx $XINITRC"
 
@@ -16,9 +19,9 @@ alias \
 	cp="cp -ivr" \
 	mv="mv -iv" \
 	rm="rm -vIrf" \
-    ll="ls -hNl --color=auto --group-directories-first" \
-    la="ls -hNa --color=auto --group-directories-first" \
-    lla="ls -hNla --color=auto --group-directories-first"
+        ll="ls -hNl --color=auto --group-directories-first" \
+        la="ls -hNa --color=auto --group-directories-first" \
+        lla="ls -hNla --color=auto --group-directories-first"
 
 # Colorize commands when possible.
 alias \
@@ -36,11 +39,11 @@ alias \
 	e="$EDITOR" \
 	v="$VISUAL" \
 	p="pacman" \
-    y="yay" \
+        y="yay" \
 	z="zathura" \
-    zisu="zinit self-update" \
-    ziu="zinit update" \
-    ziup="zinit update --parallel"
+        zisu="zinit self-update" \
+        ziu="zinit update" \
+        ziup="zinit update --parallel"
 	# trem="transmission-remote" \
 	# yt="youtube-viewer" \
 	# xi="sudo xbps-install" \

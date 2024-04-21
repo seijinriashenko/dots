@@ -19,6 +19,7 @@ for program in $autostart; do
 done >/dev/null 2>&1
 
 /usr/lib/polkit-kde-authentication-agent-1 &
+emacs --daemon
 
 # ensure that xrdb has finished running before moving on to start the WM/DE
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
