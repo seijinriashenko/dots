@@ -6,13 +6,22 @@
 # Add all directories in `~/.local/bin` to $PATH
 export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
 
+export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
+export XCURSOR_THEME="macOS-Monterey"
+
 unsetopt PROMPT_SP 2>/dev/null
+
+# Essential remapings
+export XKB_DEFAULT_MODEL="pc104"
+export XKB_DEFAULT_LAYOUT="us,ru"
+export XKB_DEFAULT_VARIANT=","
+export XKB_DEFAULT_OPTIONS="grp:alt_shift_toggle,ctrl:swapcaps"
 
 # Default programs
 # export EDITOR="nvim"
 # export VISUAL="nvim"
-export EDITOR="emacsclient -c"
-export VISUAL="emacsclient -c"
+export EDITOR="nvim"
+export VISUAL="nvim"
 export TERMINAL="alacritty"
 export BROWSER="firefox"
 
@@ -37,6 +46,7 @@ export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export QT_QPA_PLATFORMTHEME="gtk3"
 export CUDA_CACHE_PATH="$XDG_CACHE_HOME/nv"
+export BUN_INSTALL="$XDG_DATA_HOME/bun"
 
 # lf icons
 export LF_ICONS="\
@@ -203,5 +213,9 @@ ex=:\
 "
 export LC_ALL=en_US.UTF-8
 
+[[ -f ~/.bashrc ]] && source ~/.bashrc
+
 # Start graphical server on user's current tty if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $XINITRC
+#[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $XINITRC
+
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s river >/dev/null 2>&1 && exec Hyprland

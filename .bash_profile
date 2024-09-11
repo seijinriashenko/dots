@@ -1,0 +1,1 @@
+/home/seijin/.config/shell/profile

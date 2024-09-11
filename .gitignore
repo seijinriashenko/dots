@@ -3,6 +3,8 @@
 !install.sh
 !readme.md
 
+!HyprPanel
+
 !.config/
 !.config/mimeapps.list
 !.config/user-dirs.dirs
@@ -14,12 +16,10 @@
 !.config/fontconfig/**/*
 !.config/git/
 !.config/git/**/*
-!.config/i3/
-!.config/i3/**/*
+!.config/hypr/
+!.config/hypr/**/*
 !.config/npm/
 !.config/npm/**/*
-# !.config/polybar/
-# !.config/polybar/**/*
 !.config/redshift/
 !.config/redshift/**/*
 !.config/rofi/
@@ -33,13 +33,14 @@
 !.config/zsh/
 !.config/zsh/**/*
 
-!.themes/
-!.themes/**/*
-!.icons/
-!.icons/**/*
+!.local/share/themes/
+!.local/share/themes/**/*
+!.local/share/icons/
+!.local/share/icons/**/*
 
 !.gitignore
-!.zprofile
+!.bashrc
+!.bash_profile
 !.mozilla/firefox/*.default-release/chrome/
 !.mozilla/firefox/*.default-release/chrome/**/*
 

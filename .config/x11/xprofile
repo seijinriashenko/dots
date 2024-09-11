@@ -7,19 +7,20 @@ xsetroot -cursor_name left_ptr
 xset r rate 250 25
 
 # set wallpaper
-feh --no-fehbg --bg-fill ~/media/pictures/wallpapers/great-wave-of-kanagawa-gruvbox.png
+#feh --no-fehbg --bg-fill ~/media/pictures/wallpapers/great-wave-of-kanagawa-gruvbox.png
 
 # load xresources
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 
 # autostart programs
-autostart="pipewire dunst nm-applet compfy flameshot udiskie"
+#autostart="pipewire dunst nm-applet compfy flameshot udiskie"
+autostart="pipewire dunst nm-applet picom"
 for program in $autostart; do
     pidof -sx "$program" || "$program" &
 done >/dev/null 2>&1
 
 /usr/lib/polkit-kde-authentication-agent-1 &
-emacs --daemon
+#emacs --daemon
 
 # ensure that xrdb has finished running before moving on to start the WM/DE
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
