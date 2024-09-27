@@ -1,17 +1,20 @@
 *
 
-!install.sh
+# ~ files
+!install
 !readme.md
+!.gitignore
 
-!HyprPanel
-
+# .config files
 !.config/
 !.config/mimeapps.list
 !.config/user-dirs.dirs
 !.config/alacritty/
 !.config/alacritty/**/*
-!.config/compfy/
-!.config/compfy/**/*
+!.config/bash/
+!.config/bash/**/*
+!.config/bspwm/
+!.config/bspwm/**/*
 !.config/fontconfig/
 !.config/fontconfig/**/*
 !.config/git/
@@ -20,12 +23,12 @@
 !.config/hypr/**/*
 !.config/npm/
 !.config/npm/**/*
-!.config/redshift/
-!.config/redshift/**/*
-!.config/rofi/
-!.config/rofi/**/*
+!.config/readline/
+!.config/readline/**/*
 !.config/shell/
 !.config/shell/**/*
+!.config/sxhkd/
+!.config/sxhkd/**/*
 !.config/wget/
 !.config/wget/**/*
 !.config/x11/
@@ -33,15 +36,25 @@
 !.config/zsh/
 !.config/zsh/**/*
 
+# .local files
+!.local/
+!.local/bin/
+!.local/bin/**/*
+!.local/share/
 !.local/share/themes/
 !.local/share/themes/**/*
 !.local/share/icons/
 !.local/share/icons/**/*
+!.local/share/fonts/
+!.local/share/fonts/**/*
 
-!.gitignore
-!.bashrc
-!.bash_profile
-!.mozilla/firefox/*.default-release/chrome/
-!.mozilla/firefox/*.default-release/chrome/**/*
+
+# firefox files
+!.mozilla/
+!.mozilla/firefox/
+!.mozilla/firefox/default/
+!.mozilla/firefox/default/user.js
+!.mozilla/firefox/default/chrome/
+!.mozilla/firefox/default/chrome/**/*
 
 __*__

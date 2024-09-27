@@ -1,0 +1,14 @@
+# typing !!<space> replaces the !! with the last command
+Space:magic-space			
+# perform file completion in a case insensitive fashion
+set completion-ignore-case on		
+# display matches for ambiguous patterns at first tab press
+set show-all-if-ambiguous on		
+# immediately add a trailing slash when autocompleting symlinks to directories
+set mark-symlinked-directories on	
+
+# Enable incremental history search with up/down arrows (also Readline goodness)
+Control-p: history-search-backward
+Control-n: history-search-forward
+Control-f: forward-char
+Control-b: backward-char

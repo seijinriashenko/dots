@@ -1,19 +1,5 @@
+[Default Applications]
+x-scheme-handler/tonsite=org.telegram.desktop.desktop
+
 [Added Associations]
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
-
-[Default Applications]
-text/x-shellscript=text.desktop;
-x-scheme-handler/magnet=torrent.desktop;
-application/x-bittorrent=torrent.desktop;
-text/plain=text.desktop;
-application/postscript=pdf.desktop;
-application/pdf=pdf.desktop;
-application/vnd.ms-word=pdf.desktop;
-application/vnd.ms-word.document.macroenabled.12=pdf.desktop;
-application/vnd.ms-word.template.macroenabled.12=pdf.desktop;
-image/png=img.desktop;
-image/jpeg=img.desktop;
-image/gif=img.desktop;
-video/x-matroska=video.desktop
-video/mp4=video.desktop
-x-scheme-handler/tonsite=org.telegram.desktop.desktop

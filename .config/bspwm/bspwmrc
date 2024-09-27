@@ -1,0 +1,22 @@
+#! /bin/sh
+
+bspc monitor -d 1 2 3 4 5 6 7
+
+bspc config border_width         1
+bspc config window_gap           2
+bspc config normal_border_color  #333
+bspc config active_border_color  #999
+bspc config focused_border_color #ddd
+
+bspc config split_ratio          0.5
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config focus_follows_pointer false
+
+bspc rule -a firefox desktop='^2' follow=on
+bspc rule -a keepassxc desktop='^4' follow=on
+bspc rule -a Gimp desktop='^5' state=floating follow=on
+bspc rule -a albert border=off shadow=off
+
+# [ -f "$HOME/.config/polybar/scripts/launch_polybar" ] && $HOME/.config/polybar/scripts/launch_polybar

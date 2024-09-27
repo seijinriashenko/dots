@@ -1,6 +1,6 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
-# Profile file, runs on login. Environmental variables are set here.
+# Profile file, runs on login. Environment variables are set here.
 # Credits: Luke Smith (GitHub: @lukesmithxyz)
 
 # Add all directories in `~/.local/bin` to $PATH
@@ -18,8 +18,6 @@ export XKB_DEFAULT_VARIANT=","
 export XKB_DEFAULT_OPTIONS="grp:alt_shift_toggle,ctrl:swapcaps"
 
 # Default programs
-# export EDITOR="nvim"
-# export VISUAL="nvim"
 export EDITOR="nvim"
 export VISUAL="nvim"
 export TERMINAL="alacritty"
@@ -41,7 +39,6 @@ export GOMODCACHE="$XDG_CACHE_HOME/go/mod"
 export RUSTUP_HOME="$XDG_DATA_HOME/rustup"
 export HISTFILE="$XDG_DATA_HOME/history"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
-export ZSH="$XDG_CONFIG_HOME/zsh/oh-my-zsh" # oh-my-zsh folder
 export NPM_CONFIG_USERCONFIG="$XDG_CONFIG_HOME/npm/npmrc"
 export STARSHIP_CONFIG="$HOME/.config/starship/starship.toml"
 export QT_QPA_PLATFORMTHEME="gtk3"
@@ -212,8 +209,6 @@ ex=:\
 *.nix=:\
 "
 export LC_ALL=en_US.UTF-8
-
-[[ -f ~/.bashrc ]] && source ~/.bashrc
 
 # Start graphical server on user's current tty if not already running.
 #[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $XINITRC
