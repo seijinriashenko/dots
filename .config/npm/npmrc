@@ -1,4 +1,4 @@
-prefix=/home/seijin/.local/share/npm
-cache=/home/seijin/.cache/npm
-init-module=/home/seijin/.config/npm/config/npm-init.js
-logs-dir=/home/seijin/.local/state/npm/logs
+prefix=/home/svyat/.local/share/npm
+cache=/home/svyat/.cache/npm
+init-module=/home/svyat/.config/npm/config/npm-init.js
+logs-dir=/home/svyat/.local/state/npm/logs
