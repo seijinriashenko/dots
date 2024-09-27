@@ -6,16 +6,17 @@
 # Add all directories in `~/.local/bin` to $PATH
 export PATH="$PATH:$(find ~/.local/bin -type d | paste -sd ':' -)"
 
-export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
-export XCURSOR_THEME="macOS-Monterey"
+####################
+### Source files ###
+####################
+# Source things that are exported once
+# * ~/.path can be used to extend `$PATH`.
+# * ~/.extra can be used for other settings you don’t want to commit.
+for file in $HOME/.config/shell/{path,exports,functions,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
 
-unsetopt PROMPT_SP 2>/dev/null
-
-# Essential remapings
-export XKB_DEFAULT_MODEL="pc104"
-export XKB_DEFAULT_LAYOUT="us,ru"
-export XKB_DEFAULT_VARIANT=","
-export XKB_DEFAULT_OPTIONS="grp:alt_shift_toggle,ctrl:swapcaps"
 
 # Default programs
 export EDITOR="nvim"
@@ -29,6 +30,7 @@ export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_STATE_HOME="$HOME/.local/state"
 export XAUTHORITY="$XDG_RUNTIME_DIR/Xauthority" # This line will break some DMs.
+
 export XINITRC="$XDG_CONFIG_HOME/x11/xinitrc"
 export WGETRC="$XDG_CONFIG_HOME/wget/wgetrc"
 export GTK2_RC_FILES="$XDG_CONFIG_HOME/gtk-2.0/gtkrc-2.0"
@@ -210,7 +212,19 @@ ex=:\
 "
 export LC_ALL=en_US.UTF-8
 
-# Start graphical server on user's current tty if not already running.
-#[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $XINITRC
+# Cursor
+export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
+export XCURSOR_THEME="macOS"
 
-[ "$(tty)" = "/dev/tty1" ] && ! pidof -s river >/dev/null 2>&1 && exec Hyprland
+# Prompt (something)
+unsetopt PROMPT_SP 2>/dev/null
+
+# XKB options
+export XKB_DEFAULT_MODEL="pc104"
+export XKB_DEFAULT_LAYOUT="us,ru"
+export XKB_DEFAULT_VARIANT=","
+export XKB_DEFAULT_OPTIONS="grp:alt_shift_toggle,ctrl:swapcaps"
+
+# Start graphical server on user's current tty if not already running.
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $XINITRC
+# [ "$(tty)" = "/dev/tty1" ] && ! pidof -s river >/dev/null 2>&1 && exec Hyprland

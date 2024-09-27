@@ -1,4 +1,69 @@
-# If not running interactively, don't do anything
-#[[ $- != *i* ]] && return
+#!/usr/bin/env bash
 
-[ -n "$PS1" ] && [ -f "$HOME/.config/bash/profile" ] && source $HOME/.config/bash/profile;
+####################
+### Source files ###
+####################
+# Source files which I need in every instance of bash
+for file in $HOME/.config/shell/{aliases,extra}; do
+	[ -r "$file" ] && [ -f "$file" ] && source "$file";
+done;
+unset file;
+
+##############
+### Prompt ###
+##############
+[ -f "${XDG_CONFIG_HOME:-$HOME/.config}/bash/prompt" ] && source "${XDG_CONFIG_HOME:-$HOME/.config}/bash/prompt"
+
+###############
+### Options ###
+###############
+
+set -o noclobber		# prevent file overwrite on stdout redirection (use `>|` for that)
+shopt -s nocaseglob;		# case-insensitive globbing
+shopt -s checkwinsize		# update window size after every command
+shopt -s cdable_vars
+shopt -s autocd 2>/dev/null;	# autocd`, e.g. `**/qux` will enter `./foo/bar/baz/qux`
+shopt -s globstar 2>/dev/null;	# recursive globbing, e.g. `echo **/*.txt`
+shopt -s dirspell 2> /dev/null	# correct spelling errors during tab-completion
+shopt -s cdspell 2> /dev/null	# correct spelling errors in arguments supplied to cd
+
+PROMPT_DIRTRIM=2	# automatically trim long paths in the prompt
+unsetopt PROMPT_SP 2>/dev/null
+
+################
+### History  ###
+################
+
+shopt -s histappend;		# append to the Bash histfile, rather than overwrite it
+shopt -s cmdhist;		# save multi-line commands as one command
+
+HISTSIZE=500000				# huge history (doesn't slow things down)
+HISTFILESIZE=100000
+HISTCONTROL="erasedups:ignoreboth"			# avoid duplicate entries
+HISTTIMEFORMAT='%F %T ' 				# use standard ISO 8601 timestamp
+export HISTFILE="$XDG_DATA_HOME/history"
+export HISTIGNORE="&:[ ]*:exit:ls:bg:fg:history:clear"	# don't record some commands
+
+###################
+### Completions ###
+###################
+
+# 1) Install `bash-completion`, e.g. with `pacman -S bash-completion`
+
+# 2) Source completions
+# Use bash-completion, if available
+[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
+    . /usr/share/bash-completion/bash_completion
+
+# 3) Setup/Customize completions
+
+# Add tab completion for SSH hostnames based on ~/.ssh/config, ignoring wildcards
+[ -e "$HOME/.ssh/config" ] && complete -o "default" -o "nospace" -W "$(grep "^Host" ~/.ssh/config | grep -v "[?*]" | cut -d " " -f2- | tr ' ' '\n')" scp sftp ssh;
+
+
+####################
+### Integrations ###
+####################
+
+## fzf
+eval "$(fzf --bash)"
