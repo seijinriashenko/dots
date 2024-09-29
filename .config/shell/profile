@@ -221,10 +221,10 @@ unsetopt PROMPT_SP 2>/dev/null
 
 # XKB options
 export XKB_DEFAULT_MODEL="pc104"
-export XKB_DEFAULT_LAYOUT="us,ru"
+export XKB_DEFAULT_LAYOUT="us,ua"
 export XKB_DEFAULT_VARIANT=","
 export XKB_DEFAULT_OPTIONS="grp:alt_shift_toggle,ctrl:swapcaps"
 
 # Start graphical server on user's current tty if not already running.
-[ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $XINITRC
-# [ "$(tty)" = "/dev/tty1" ] && ! pidof -s river >/dev/null 2>&1 && exec Hyprland
+# [ "$(tty)" = "/dev/tty1" ] && ! pidof -s Xorg >/dev/null 2>&1 && exec startx $XINITRC
+[ "$(tty)" = "/dev/tty1" ] && ! pidof -s sway >/dev/null 2>&1 && exec sway

@@ -27,6 +27,8 @@
 !.config/readline/**/*
 !.config/shell/
 !.config/shell/**/*
+!.config/sway/
+!.config/sway/**/*
 !.config/sxhkd/
 !.config/sxhkd/**/*
 !.config/wget/
