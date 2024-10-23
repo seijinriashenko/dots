@@ -11,8 +11,7 @@ feh --no-fehbg --bg-fill ~/media/pictures/wallpapers/bw_waves.jpg
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
 
 # autostart programs
-# autostart="albert dunst nm-applet pipewire polybar sxhkd udiskie"
-autostart="dunst nm-applet pipewire polybar sxhkd udiskie"
+autostart="nm-applet pipewire udiskie"
 for program in $autostart; do
     pidof -sx "$program" || "$program" &
 done >/dev/null 2>&1
