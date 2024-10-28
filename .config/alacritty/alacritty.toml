@@ -11,16 +11,16 @@ opacity = 1
 
 [font]
 normal = { family = "monospace", style = "Medium" }
-size = 15
+size = 14
 
 [cursor]
 style = { shape = "Block", blinking = "Never" }
 
 [general]
 import = [
-    # "~/.config/alacritty/themes/gruvbox.toml",
+    "~/.config/alacritty/themes/gruvbox.toml",
     # "~/.config/alacritty/themes/nord.toml",
-    "~/.config/alacritty/themes/modus-vivendi.toml",
+    # "~/.config/alacritty/themes/modus-vivendi.toml",
     # "~/.config/alacritty/themes/dracula.toml",
     # "~/.config/alacritty/themes/rosepine.toml"
     # "~/.config/alacritty/themes/github.toml"

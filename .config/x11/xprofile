@@ -1,11 +1,3 @@
-xrandr --dpi 93     # AOC C24G1
-# xrandr --dpi 125  # X220
-
-xsetroot -cursor_name left_ptr  # useful in BSPWM for example
-xset r rate 250 25              # adjust typematic delay and rate
-
-# set wallpaper
-feh --no-fehbg --bg-fill ~/media/pictures/wallpapers/bw_waves.jpg
 
 # load xresources
 xrdb ${XDG_CONFIG_HOME:-$HOME/.config}/x11/xresources & xrdbpid=$!
@@ -17,7 +9,12 @@ for program in $autostart; do
 done >/dev/null 2>&1
 
 /usr/lib/polkit-kde-authentication-agent-1 &
-# emacs --daemon
 
 # ensure that xrdb has finished running before moving on to start the WM/DE
 [ -n "$xrdbpid" ] && wait "$xrdbpid"
+
+xsetroot -cursor_name left_ptr  # just in case
+xset r rate 250 25              # adjust typematic delay and rate
+
+# wallpaper
+#feh --no-fehbg --bg-fill ~/media/pictures/wallpapers/bw_waves.jpg

@@ -31,9 +31,9 @@ alias \
 	cp="cp -ivr" \
 	mv="mv -iv" \
 	rm="rm -vIrf" \
-        ll="ls -hNl ${colorflag} --group-directories-first" \
-        la="ls -hNa ${colorflag} --group-directories-first" \
-        lla="ls -hNla ${colorflag} --group-directories-first"
+    ll="ls -hNl ${colorflag} --group-directories-first" \
+    la="ls -hNa ${colorflag} --group-directories-first" \
+    lla="ls -hNla ${colorflag} --group-directories-first"
 
 # These common commands are just too long! Abbreviate them.
 alias \
@@ -44,11 +44,12 @@ alias \
 	v="$VISUAL" \
 	p="pacman" \
 	untar="tar -xvf" \
-        y="yay" \
+    y="yay" \
 	z="zathura" \
-        zisu="zinit self-update" \
-        ziu="zinit update" \
-        ziup="zinit update --parallel"
+    zisu="zinit self-update" \
+    ziu="zinit update" \
+    ziup="zinit update --parallel" \
+    ff="fastfetch" \
 	# trem="transmission-remote" \
 	# yt="youtube-viewer" \
 	# xi="sudo xbps-install" \

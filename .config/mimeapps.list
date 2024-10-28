@@ -1,5 +1,7 @@
 [Default Applications]
 x-scheme-handler/tonsite=org.telegram.desktop.desktop
+application/pdf=pdf.desktop;
 
 [Added Associations]
 x-scheme-handler/tonsite=org.telegram.desktop.desktop;
+application/msword=org.pwmt.zathura.desktop;

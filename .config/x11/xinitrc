@@ -1,9 +1,9 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ -f "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile" ]; then
-    . "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
+    source "${XDG_CONFIG_HOME:-$HOME/.config}/x11/xprofile"
 else
-    . "$HOME/.xprofile"
+    source "$HOME/.xprofile"
 fi
 
 # Activate DBus variables
