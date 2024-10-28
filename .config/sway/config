@@ -20,6 +20,12 @@ set $term alacritty
 # on the original workspace that the command was run on.
 set $menu rofi -show run
 
+set $prtscrn (grim -g "$(slurp -o -r -c '#ff0000ff')" -t ppm - | satty --filename - --fullscreen --output-filename ~/media/pictures/satty-$(date '+%Y%m%d-%H:%M:%S').png | wl-copy -t image/png)
+# set $prtsc_area
+
+# Set cursor theme and size
+seat seat0 xcursor_theme macOS 20
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -70,6 +76,9 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
     # Start your launcher
     bindsym $mod+r exec $menu
+
+    # Screenshot
+    bindsym $mod+Shift+s exec $prtscrn
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.

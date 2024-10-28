@@ -213,14 +213,15 @@ ex=:\
 export LC_ALL=en_US.UTF-8
 
 # Cursor
-export XCURSOR_PATH=${XCURSOR_PATH}:~/.local/share/icons
+export XCURSOR_PATH=~/.local/share/icons:${XCURSOR_PATH}
 export XCURSOR_THEME="macOS"
+export XCURSOR_THEME=24
 
 # Prompt (something)
 unsetopt PROMPT_SP 2>/dev/null
 
 # XKB options
-export XKB_DEFAULT_MODEL="pc104"
+export XKB_DEFAULT_MODEL="pc105"
 export XKB_DEFAULT_LAYOUT="us,ua"
 export XKB_DEFAULT_VARIANT=","
 export XKB_DEFAULT_OPTIONS="grp:alt_shift_toggle,ctrl:swapcaps"
