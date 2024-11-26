@@ -49,6 +49,10 @@
 !.local/share/icons/**/*
 !.local/share/fonts/
 !.local/share/fonts/**/*
+!.local/share/fonts/otf/
+!.local/share/fonts/otf/**/*
+!.local/share/fonts/ttf/
+!.local/share/fonts/ttf/**/*
 
 
 # firefox files
